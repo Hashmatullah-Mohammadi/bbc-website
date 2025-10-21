@@ -1,0 +1,177 @@
+/* ✅ Default styles are for desktop (already fine) */
+
+/* ====== Tablet (≤ 992px) ====== */
+@media (max-width: 992px) {
+
+  .logo {
+    font-size: 18px;
+    justify-content: flex-start;
+  }
+
+  .auth-buttons {
+    width: auto;
+    justify-content: end;
+    gap: 6px;
+  }
+
+  nav.navbar {
+    display: none; 
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 20px;
+  }
+
+  main {
+    padding: 100px 20px;
+  }
+
+  .sidebar {
+    width: 240px;
+  }
+    .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+
+}
+
+
+
+
+
+
+/* ====== Mobile (≤ 768px) ====== */
+@media (max-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 16px;
+    justify-content: center;
+  }
+
+  .nav.navbar {
+    display: none !important; 
+  }
+
+  .auth-buttons {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+    .auth-buttons button.Register,
+  .auth-buttons button.sign {
+    display: none; 
+  }
+
+  .auth-icon {
+    display: flex; 
+  }
+
+  .auth-dropdown.show {
+  display: flex;
+  }
+  .auth-buttons button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .menu-btn {
+    font-size: 18px;
+  }
+
+  .sidebar {
+    width: 220px;
+    padding: 15px;
+  }
+
+  .sidebar ul li {
+    font-size: 0.85rem;
+  }
+
+  .submenu li a {
+    font-size: 0.75rem;
+  }
+
+  main {
+    padding: 90px 15px;
+  }
+
+  /* footer section ----------------------------------------------- */
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .footer-links-section ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .language-content {
+    padding: 25px 15px;
+  }
+  .language-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+}
+
+/* ====== Small Mobile (≤ 480px) ====== */
+@media (max-width: 480px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .auth-dropdown.show {
+  display: flex;
+}
+
+
+  .logo {
+    width: 33%;
+    font-size: 12px;
+  }
+
+  .menu-btn {
+    font-size: 12px;
+
+  }
+
+
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar ul li {
+    font-size: 0.8rem;
+  }
+
+  .submenu li a {
+    font-size: 0.7rem;
+  }
+
+  main {
+    padding: 80px 10px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .footer-menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .language-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,551 @@
+/* =====================================================
+   🌈 Theme Variables (Dark + Light)
+===================================================== */
+:root {
+  /* === Dark Theme (default) === */
+  --color-bg-body: #0b081f;
+  --color-bg-header: #0b1a33;
+  --color-bg-navbar: #ffffff;
+  --color-bg-auth-dark: #000;
+  --color-bg-auth-light: #fff;
+  --color-bg-sidebar: #121527;
+  --color-bg-submenu-hover: #1d2140;
+  --color-bg-footer: rgba(11, 12, 48, 0.56);
+  --color-bg-language: #13294b;
+
+  --color-text-main: #ffffff;
+  --color-text-dark: #000000;
+  --color-text-nav: #120d32;
+  --color-text-hover: #1c6b8d;
+
+  --color-border-light: rgba(255, 255, 255, 0.2);
+  --color-border-sidebar: #272b4a;
+
+  --transition-fast: 0.3s ease;
+  --font-main: Arial, sans-serif;
+}
+
+/* === Light Theme === */
+body.light-theme {
+  --color-bg-body: #f5f5f5;
+  --color-bg-header: #e9ecf3;
+  --color-bg-navbar: #ffffff;
+  --color-bg-auth-dark: #222;
+  --color-bg-auth-light: #fff;
+  --color-bg-sidebar: #ffffff;
+  --color-bg-submenu-hover: #e6e8f2;
+  --color-bg-footer: #f0f0f5;
+  --color-bg-language: #dce2f7;
+
+  --color-text-main: #121527;
+  --color-text-dark: #000;
+  --color-text-nav: #121527;
+  --color-text-hover: #162e57;
+
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-border-sidebar: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+  background: var(--color-bg-auth-light);
+  color: var(--color-text-dark);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: var(--color-text-hover);
+  color: var(--color-bg-auth-light);
+}
+
+
+/* =====================================================
+   🌐 Reset
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+body {
+  background: var(--color-bg-body);
+  height: 100vh;
+}
+
+/* =====================================================
+   🧭 Header / Navbar
+===================================================== */
+header {
+  background-image: url('./img/h-bg.png');
+  background-position: center;
+  background-color: var(--color-bg-header);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 995;
+}
+
+.logo {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-text-dark);
+  padding: 4px 8px;
+  letter-spacing: 2px;
+  gap: 5px;
+}
+
+.logo .bbc {
+  background-color: var(--color-bg-auth-light);
+   width: 20px;
+    height: 20px;
+    justify-content: center;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Navbar ===== */
+nav.navbar {
+  margin-top: 65px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-bg-navbar);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+nav.navbar a {
+  color: var(--color-text-nav);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  transition: var(--transition-fast);
+  background-color: var(--color-bg-navbar);
+  padding: 0 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav.navbar a:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-text-nav);
+}
+
+/* =====================================================
+   🔒 Auth Buttons + Dropdown
+===================================================== */
+.auth-buttons {
+  overflow: visible;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+}
+
+.auth-buttons button.Register,
+.auth-buttons button.sign {
+  display: inline-flex;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition-fast);
+}
+
+.auth-buttons button.Register {
+  background: var(--color-bg-auth-dark);
+  color: var(--color-bg-auth-light);
+}
+
+.auth-buttons button.sign {
+  background: var(--color-bg-auth-light);
+  color: var(--color-bg-auth-dark);
+}
+
+.auth-buttons button:hover {
+  opacity: 0.85;
+}
+
+/* Mobile Icon */
+.auth-icon {
+  display: none;
+  font-size: 14px;
+  cursor: pointer;
+  background: var(--color-bg-auth-light);
+  color: var(--color-bg-auth-dark);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+/* Dropdown */
+.auth-dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: var(--color-bg-sidebar);
+  padding: 5px 0;
+  border-radius: 6px;
+  width: 140px;
+  z-index: 9999;
+}
+
+.auth-dropdown button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-main);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-dropdown button:hover {
+  background: var(--color-bg-submenu-hover);
+}
+
+/* =====================================================
+   📚 Sidebar
+===================================================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: var(--color-bg-sidebar);
+  color: var(--color-text-main);
+  padding: 20px;
+  transition: left 0.4s ease;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar .close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--color-text-main);
+  align-self: flex-end;
+  margin-bottom: 15px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border-light);
+  outline: none;
+  font-size: 14px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background var(--transition-fast);
+  border-bottom: 0.5px solid var(--color-border-sidebar);
+  font-size: 0.9rem;
+}
+
+.sidebar ul li:hover {
+  background: var(--color-bg-submenu-hover);
+}
+
+.submenu {
+  display: none;
+  padding: 5px 0 5px 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.submenu li a {
+  color: #4b4b4b;
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.submenu li a:hover {
+  color: var(--color-text-main);
+}
+
+.arrow {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.has-submenu.open .submenu {
+  display: block;
+  background: var(--color-bg-sidebar);
+}
+
+.has-submenu.open .arrow {
+  transform: rotate(180deg);
+  color: var(--color-text-main);
+  transition: transform 0.3s;
+}
+
+.active {
+  border-left: 6px solid var(--color-text-main);
+}
+
+/* 🌍 Footer Base */
+.bbc-footer {
+  background-color: var(--color-bg-footer, #111);
+  background-image: url('./img/h-bg.png');
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  color: var(--color-text-main, #fff);
+  padding: 40px 30px;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Footer Menu (Top) --- */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-border-light, rgba(255,255,255,0.2));
+  padding-bottom: 10px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: var(--color-text-main, #fff);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.footer-menu a:hover {
+  color: var(--color-text-hover, #f90);
+}
+
+/* --- Follow BBC --- */
+.follow-bbc {
+  padding-top: 30px;
+  text-align: left;
+}
+
+.follow-bbc h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--color-text-main, #fff);
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: var(--color-text-main, #fff);
+  font-size: 1.3rem;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--color-text-hover, #f90);
+  transform: scale(1.15);
+}
+
+/* --- Language Dropdown --- */
+.language-dropdown {
+  margin-top: 25px;
+  text-align: left;
+  position: relative;
+}
+
+.language-dropdown button {
+  background-color: var(--color-bg-language, #222);
+  border: none;
+  color: var(--color-text-main, #fff);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.language-dropdown button:hover {
+  background-color: var(--color-text-hover, #f90);
+  color: #111;
+}
+
+/* --- Language Panel --- */
+.language-panel {
+  display: none;
+  background-color: var(--color-bg-language, #222);
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease;
+}
+
+.language-panel.active {
+  display: block;
+}
+
+.language-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.language-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.language-content p {
+  font-size: 1rem;
+  margin: 20px 0 40px 0;
+  opacity: 0.9;
+}
+
+.language-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  list-style: none;
+  text-align: left;
+  padding: 29px 100px;
+}
+
+.language-list a {
+  color: var(--color-text-main, #fff);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.language-list a:hover {
+  color: var(--color-text-hover, #f90);
+}
+
+/* --- Footer Links Section --- */
+.footer-links-section {
+  margin-top: 40px;
+}
+
+.footer-links-section ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.footer-links-section a {
+  color: var(--color-text-main, #fff);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links-section a:hover {
+  color: var(--color-text-hover, #f90);
+}
+
+.footer-links-section p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 10px;
+
+}
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid var(--color-border-light, rgba(255,255,255,0.2));
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* --- Animation --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
